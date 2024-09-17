@@ -1,5 +1,5 @@
 [package]
-name = "tinier_goban"
+name = "tiny_goban"
 version = "0.1.0"
 edition = "2021"
 
