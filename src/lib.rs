@@ -739,6 +739,13 @@ mod tests {
     }
 
     #[test]
+    fn can_get_final_point_another_way() {
+        let goban = Goban::default();
+        let final_point = Coord::new(18, 18).unwrap();
+        goban.get(&final_point);
+    }
+
+    #[test]
     fn cant_get_beyond_final_point() {
         let goban = Goban::default();
         let beyond_final_point = Coord { index: 361 };
