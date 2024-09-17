@@ -435,7 +435,7 @@ impl Goban {
     pub fn set(&mut self, coord: &Coord, point: Point) {
         let (point_store_index, code_index) = Goban::coord_to_store_indecies(coord);
         match point_store_index {
-            91 => self.final_point_and_ko_store.set_point(point),
+            90 => self.final_point_and_ko_store.set_point(point),
             main_store_index => self.main_points_store[main_store_index].set(&code_index, point),
         }
     }
@@ -750,6 +750,28 @@ mod tests {
         let goban = Goban::default();
         let beyond_final_point = Coord { index: 361 };
         goban.get(&beyond_final_point);
+    }
+
+    #[test]
+    fn can_get_all_points() {
+        let goban = Goban::default();
+        for x in 0..19 {
+            for y in 0..19 {
+                let this_coord = Coord::new(x, y).unwrap();
+                goban.get(&this_coord);
+            }
+        }
+    }
+
+    #[test]
+    fn can_set_all_points() {
+        let mut goban = Goban::default();
+        for x in 0..19 {
+            for y in 0..19 {
+                let this_coord = Coord::new(x, y).unwrap();
+                goban.set(&this_coord, Point::Clear(KoState::Otherwise));
+            }
+        }
     }
 
     #[test]
