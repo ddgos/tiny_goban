@@ -4,7 +4,7 @@ use core::ops::Range;
 
 use heapless::{spsc::Queue, String, Vec};
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Player {
     Black,
     White,
@@ -187,7 +187,7 @@ impl CodePointIndex {
     const ALL: [Self; 4] = [Self::First, Self::Second, Self::Third, Self::Fourth];
 }
 
-#[derive(Default, Clone, Debug, PartialEq)]
+#[derive(Default, Copy, Clone, Debug, PartialEq)]
 struct FourPointStore(u8);
 
 impl FourPointStore {
@@ -237,7 +237,7 @@ impl FourPointStore {
     }
 }
 
-#[derive(Default, Clone, Debug, PartialEq)]
+#[derive(Default, Copy, Clone, Debug, PartialEq)]
 struct FinalPointAndKoStore(u8);
 
 macro_rules! range_for {
@@ -322,7 +322,7 @@ impl FinalPointAndKoStore {
     }
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Goban {
     main_points_store: [FourPointStore; 90],
     final_point_and_ko_store: FinalPointAndKoStore,
