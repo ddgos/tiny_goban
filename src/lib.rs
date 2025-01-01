@@ -521,7 +521,7 @@ impl Goban {
         self.final_point_and_ko_store
             .set_ko_store(&coord_captured_in_ko);
         let (store_index, code_point_index) = Self::coord_to_store_indecies(&coord_captured_in_ko);
-        if store_index == 91 {
+        if store_index == 90 {
             // would have already been set above
         } else {
             self.main_points_store[store_index as usize]
