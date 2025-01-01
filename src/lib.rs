@@ -507,7 +507,7 @@ impl Goban {
         if let Some(ko_range) = self.final_point_and_ko_store.ko_store_range() {
             for store in ko_range {
                 match store {
-                    91 => self.final_point_and_ko_store.clear_ko_store(),
+                    90 => self.final_point_and_ko_store.clear_ko_store(),
                     main_sequence_store => {
                         self.main_points_store[main_sequence_store as usize].clear_ko_store()
                     }
