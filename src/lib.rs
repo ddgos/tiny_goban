@@ -60,7 +60,7 @@ impl Point {
     }
 }
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
 pub struct Coord {
     index: u16,
 }
