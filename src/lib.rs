@@ -10,6 +10,15 @@ pub enum Player {
     White,
 }
 
+impl Player {
+    pub const fn other(&self) -> Self {
+        match self {
+            Player::Black => Player::White,
+            Player::White => Player::Black,
+        }
+    }
+}
+
 #[derive(Debug, PartialEq)]
 pub enum KoState {
     CapturedInKo,
